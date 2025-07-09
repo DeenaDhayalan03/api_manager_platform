@@ -6,6 +6,7 @@ redis
 asgiref
 requests
 aioredis
+rich
 python-jose[cryptography]
 passlib[bcrypt]
 bcrypt<4.1.0

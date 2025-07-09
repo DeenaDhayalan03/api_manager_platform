@@ -8,6 +8,7 @@ from scripts.core.utils.mongo_utils.summary_utils import generate_scheduled_summ
 from scripts.core.utils.celery_utils.celery_app import celery_app
 
 
+
 @celery_app.task(base=BaseTaskWithRetry, name="deduct_credits_task")
 @log_task_execution
 def deduct_credits_task(tenant_id: str, service: str, endpoint: str):
@@ -61,8 +62,10 @@ def send_mqtt_alert_task(data: dict):
         publish_low_credit_alert(tenant_id, remaining_credits, message=warning_msg)
         insert_or_update_low_credit_notification(tenant_id, username, warning_msg)
 
-    publish_credit_success(tenant_id, data["credits_used"])
-    return data
+    try:
+        publish_credit_success(tenant_id, data["credits_used"])
+    except Exception as e:
+        print(f"[CELERY ERROR] Failed to publish credit success: {e}")
 
 
 @celery_app.task(base=BaseTaskWithRetry, name="scripts.core.utils.celery_tasks.generate_scheduled_summary_task")

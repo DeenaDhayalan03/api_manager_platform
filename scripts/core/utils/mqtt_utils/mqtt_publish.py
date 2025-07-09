@@ -1,6 +1,7 @@
 import json
 from scripts.core.utils.mqtt_utils.mqtt_client import mqtt_client
 from scripts.core.utils.mqtt_utils import mqtt_topics
+from scripts.core.utils.mqtt_utils.mqtt_publisher_client import publish_mqtt_message
 
 
 def publish_low_credit_alert(tenant_id: str, remaining_credits: int, message: str = None):
@@ -22,4 +23,6 @@ def publish_credit_success(tenant_id: str, credits_used: int):
         "type": "credit_deducted",
         "used": credits_used
     }
-    mqtt_client.publish(topic, json.dumps(payload), retain=False)
+
+    publish_mqtt_message(topic, payload)
+
