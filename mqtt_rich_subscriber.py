@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
                     f"[yellow]Tenant:[/] {topic.split('/')[1]}\n"
                     f"[yellow]Remaining:[/] {data.get('remaining')} credits\n"
                     f"[yellow]Message:[/] {data.get('message')}",
-                    title="🔔 WARNING",
+                    title="WARNING",
                     border_style="red",
                     box=box.ROUNDED,
                 )
@@ -43,7 +43,7 @@ def on_message(client, userdata, msg):
                     f"[bold green]CREDITS DEDUCTED[/]\n"
                     f"[yellow]Tenant:[/] {topic.split('/')[1]}\n"
                     f"[yellow]Used:[/] {data.get('used')} credits",
-                    title="💰 CREDITS USED",
+                    title="CREDITS USED",
                     border_style="green",
                     box=box.ROUNDED,
                 )
