@@ -9,7 +9,7 @@ def publish_mqtt_message(topic: str, payload: dict):
         client.connect(settings.MQTT_BROKER_URL, settings.MQTT_PORT, settings.MQTT_KEEPALIVE)
         client.loop_start()
 
-        client.publish(topic, json.dumps(payload), retain=False)
+        client.publish(topic, json.dumps(payload), retain=True)
         print(f"[MQTT] Published to {topic}: {payload}")
 
         client.loop_stop()

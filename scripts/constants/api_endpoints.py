@@ -12,6 +12,4 @@ class APIEndpoints:
     GET_ENDPOINT_CREDIT = "/api/credits/endpoint/detail"
     DELETE_ENDPOINT_CREDIT = "/api/credits/endpoint/delete"
 
-    CREDITS_ME = "/api/credits/me"
-
     TRIGGER_INVOICE = "/api/notifications/invoice"

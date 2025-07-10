@@ -1,6 +1,6 @@
 from celery import Celery
 from scripts.constants.app_configuration import settings
-from scripts.core.utils.celery_beat_utils.scheduler_config import CELERY_BEAT_SCHEDULE  # ✅ Import beat schedule
+from scripts.core.utils.celery_beat_utils.scheduler_config import CELERY_BEAT_SCHEDULE
 
 celery_app = Celery(
     "api_management_tasks",

@@ -13,7 +13,7 @@ def publish_low_credit_alert(tenant_id: str, remaining_credits: int, message: st
         "message": message or f"Low credit alert: only {remaining_credits} credits left."
     }
 
-    mqtt_client.publish(topic, json.dumps(payload), retain=False)
+    mqtt_client.publish(topic, json.dumps(payload), retain=True)
     print(f"[MQTT] Published low credit alert to {topic}: {payload}")
 
 

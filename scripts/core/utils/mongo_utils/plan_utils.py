@@ -1,4 +1,4 @@
-from scripts.core.utils.mongo_utils.db_connection import db  # sync DB
+from scripts.core.utils.mongo_utils.db_connection import db
 from scripts.constants.app_configuration import settings
 
 
